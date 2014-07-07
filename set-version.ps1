@@ -98,8 +98,11 @@ function Set-VersionFromSourceAndTeamCity
           where-object {$_.Name -eq $file} |        
           foreach-object {$updatedVersion = Update-VersionFile -assemblyInfoFilepath $_.FullName -majorMinorPatch $majorMinorPatch -buildNumber $buildNumber}
     }
-   
     Write-Host "Updated all occurrences of"$assemblyInfoFiles "to have version" $updatedVersion
+	
+	#now notify TeamCity of our new version string (http://confluence.jetbrains.com/display/TCD5/Build+Script+Interaction+with+TeamCity#BuildScriptInteractionwithTeamCity-ReportingBuildStatus)
+	Write-Host "Notify TeamCity of our new version string: $updatedVersion"
+	Write-Host "##teamcity[buildNumber '$updatedVersion']"
 }
 
 
