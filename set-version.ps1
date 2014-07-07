@@ -103,4 +103,11 @@ function Set-VersionFromSourceAndTeamCity
 }
 
 
+#This script will be invoked with no parameters from TeamCity
+#but TeamCity will have automatically set the variable $env:build_number 
+#which will contain the current build number
 Write-Host "In Set-Version.ps1"
+if($env:build_number)
+{
+   Set-VersionFromSourceAndTeamCity -buildNumber $env:build_number
+}
