@@ -1,4 +1,4 @@
-﻿$versionPattern = '[0-9]+(\.([0-9]+|\*)){3}'
+$versionPattern = '[0-9]+(\.([0-9]+|\*)){3}'
 $assemblyVersionPattern = "AssemblyVersion\(`"($versionPattern)`"\)"
 $assemblyFileVersionPattern = "AssemblyFileVersion\(`"($versionPattern)`"\)"
 
