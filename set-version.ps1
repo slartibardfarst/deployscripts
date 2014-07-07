@@ -102,3 +102,5 @@ function Set-VersionFromSourceAndTeamCity
     Write-Host "Updated all occurrences of"$assemblyInfoFiles "to have version" $updatedVersion
 }
 
+
+Write-Host "In Set-Version.ps1"
